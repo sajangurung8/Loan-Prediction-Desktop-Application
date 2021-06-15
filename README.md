@@ -1,4 +1,4 @@
-# SCRAPE2COMPARE- Loan Prediction Desktop Application for Veterans: 
+# SCRAPE2COMPARE- Loan Prediction Desktop Application: 
 VA Loan estimating tool designed to help veterans to compare rates and understand monthly payments at one place.
 This Windows form application have 3 funcitons to serve your cuiousity about VA Loan:
 
