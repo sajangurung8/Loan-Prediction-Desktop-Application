@@ -21,5 +21,10 @@ namespace Loan_Prediction_Desktop_Application
         {
 
         }
+
+        private void statusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

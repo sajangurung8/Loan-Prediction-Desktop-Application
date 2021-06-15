@@ -39,6 +39,7 @@ namespace Loan_Prediction_Desktop_Application
             this.nf30 = new System.Windows.Forms.Label();
             this.us30 = new System.Windows.Forms.Label();
             this.vu30 = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nfLabel
@@ -122,6 +123,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.nf30.AutoSize = true;
             this.nf30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nf30.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.nf30.Location = new System.Drawing.Point(229, 163);
             this.nf30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nf30.Name = "nf30";
@@ -134,6 +136,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.us30.AutoSize = true;
             this.us30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.us30.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.us30.Location = new System.Drawing.Point(229, 236);
             this.us30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.us30.Name = "us30";
@@ -146,6 +149,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.vu30.AutoSize = true;
             this.vu30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vu30.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.vu30.Location = new System.Drawing.Point(229, 309);
             this.vu30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.vu30.Name = "vu30";
@@ -154,12 +158,25 @@ namespace Loan_Prediction_Desktop_Application
             this.vu30.Text = "Scraping";
             this.vu30.Click += new System.EventHandler(this.nf30_Click);
             // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.statusLabel.Location = new System.Drawing.Point(33, 404);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(211, 21);
+            this.statusLabel.TabIndex = 5;
+            this.statusLabel.Text = "Status: Scraping in progress...";
+            this.statusLabel.Click += new System.EventHandler(this.statusLabel_Click);
+            // 
             // scrameFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(731, 523);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.vu30);
             this.Controls.Add(this.us30);
             this.Controls.Add(this.nf30);
@@ -190,5 +207,6 @@ namespace Loan_Prediction_Desktop_Application
         public System.Windows.Forms.Label nf30;
         public System.Windows.Forms.Label us30;
         public System.Windows.Forms.Label vu30;
+        public System.Windows.Forms.Label statusLabel;
     }
 }

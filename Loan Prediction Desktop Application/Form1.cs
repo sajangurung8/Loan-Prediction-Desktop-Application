@@ -16,8 +16,8 @@ namespace Loan_Prediction_Desktop_Application
 {
     public partial class Form1 : Form
     {
+        public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false;
         public static bool firstload = true;
-
         public static double lowestIntrestRate = 10;
         public static double intNF30 = 0;
         public static double intUS30 = 0;
@@ -99,13 +99,14 @@ namespace Loan_Prediction_Desktop_Application
 
             if (firstload)
             {
-                GetHtmlAsync("Navy Federal", s1.nf30);
-                GetHtmlAsync("USAA", s1.us30);
-                GetHtmlAsync("Veterans United", s1.vu30);
+                GetHtmlAsync("Navy Federal", s1.nf30, s1.statusLabel);
+                GetHtmlAsync("USAA", s1.us30, s1.statusLabel);
+                GetHtmlAsync("Veterans United", s1.vu30, s1.statusLabel);
                 firstload = false;
             }
             else
             {
+                s1.statusLabel.Text = "Status: Complete";
                 s1.nf30.Text = intNF30.ToString() + "%";
                 s1.us30.Text = intUS30.ToString() + "%";
                 s1.vu30.Text = intVS30.ToString() + "%";
@@ -114,7 +115,7 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
-        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj)
+        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj, System.Windows.Forms.Label status)
         {
 
             Dictionary<string, BankInfo> bankDisct = new Dictionary<string, BankInfo>();
@@ -222,11 +223,22 @@ namespace Loan_Prediction_Desktop_Application
             if(intrestRate<lowestIntrestRate)
                 lowestIntrestRate = intrestRate;
             if (bankSelection.Equals("Navy Federal"))
+            {
                 intNF30 = intrestRate;
+                loadComplete1 = true;
+            }
             if (bankSelection.Equals("USAA"))
+            {
                 intUS30 = intrestRate;
+                loadComplete2 = true;
+            }
             if (bankSelection.Equals("Veterans United"))
+            {
                 intVS30 = intrestRate;
+                loadComplete3 = true;
+            }
+            if (loadComplete1 && loadComplete2 && loadComplete3)
+                status.Text = "Status: Complete";
         }
 
         private void compareBtn_Click(object sender, EventArgs e)
