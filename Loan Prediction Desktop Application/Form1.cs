@@ -234,7 +234,7 @@ namespace Loan_Prediction_Desktop_Application
             compareBtn.BackColor = Color.FromArgb(46, 51, 73);
             scrapeBtn.BackColor = Color.FromArgb(24, 30, 54);
             predictBtn.BackColor = Color.FromArgb(24, 30, 54);
-            titleLbl.Text = "Lets play with diffrent components of a loan";
+            titleLbl.Text = "Let's play with diffrent components of a loan";
 
             this.canvasPnl.Controls.Clear();
             compareFrm s2 = new compareFrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
