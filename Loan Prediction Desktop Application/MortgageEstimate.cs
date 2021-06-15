@@ -26,6 +26,7 @@ namespace Loan_Prediction_Desktop_Application
             this.Term = Term;
             this.NumOfPayments = this.Term * 12;
             this.MonthlyPayment=GetMonthlyPayment();
+            this.PaymentData = CreateReport();
         }
 
         public double GetMonthlyPayment()
@@ -73,9 +74,9 @@ namespace Loan_Prediction_Desktop_Application
             return paymentInfo;
         }
 
-        public void GetReport()
+        public string GetReport()
         {
-            Console.WriteLine("Principal: {0:C2}\nIntrest Rate: {1}%\nTerm: {2} Years\nMonthly Payment: {3:C2}", this.Principal, this.ActualIntrestRate, this.Term, this.MonthlyPayment);
+            return $"Principal: {this.Principal:C2}\nIntrest Rate: {this.ActualIntrestRate}%\nTerm: {this.Term} Years\nMonthly Payment: {this.MonthlyPayment:C2}\n\nBy the end of this loan \nperiod you will have paid\n{this.PaymentData[359,2]:C2} in Intrest";
         }
     }
 }

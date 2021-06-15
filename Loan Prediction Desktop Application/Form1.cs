@@ -47,6 +47,11 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        public static double GetLowestRate()
+        {
+            return lowestIntrestRate;
+        }
+
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
