@@ -39,19 +39,16 @@ namespace Loan_Prediction_Desktop_Application
 
         private void useLowestCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (useLowestCB.Checked)
+            if (useLowestCB.Checked && thirtyRadioBtn.Checked)
             {
-                double i = Form1.GetLowestRate();
-                if (i.Equals(10))
-                {
-                    intrestRateTB.Text = "Scrape has not begun";
-                }
-                else
-                {
-                    intrestRateTB.Text = i.ToString();
-                }
+                double i = Form1.GetLowestRate30();
+                intrestRateTB.Text = (i.Equals(10))?"Scrape has not begun": i.ToString();    
             }
-            else
+            else if(useLowestCB.Checked && fifteenRadioBtn.Checked)
+            {
+                double i = Form1.GetLowestRate15();
+                intrestRateTB.Text = (intrestRateTB.Equals(10)) ? "Scrape has not begun" : intrestRateTB.ToString();
+            }else
                 intrestRateTB.Text = "Enter custom rate";
         }
 

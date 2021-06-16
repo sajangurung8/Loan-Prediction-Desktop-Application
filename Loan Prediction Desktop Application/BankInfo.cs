@@ -19,8 +19,8 @@ namespace Loan_Prediction_Desktop_Application
         public string rowIdName { get; set; }
         public string rowDataId { get; set; }
         public string rowDataIdName { get; set; }
-        public int rowIdIndex { get; set; }
-        public BankInfo(string bankName, string url, string tableId, string tableIdName, string rowId, string rowIdName, int rowIdIndex, string rowDataId, string rowDataIdName)
+        public int[] rowIdIndex { get; set; }
+        public BankInfo(string bankName, string url, string tableId, string tableIdName, string rowId, string rowIdName, int[] rowIdIndex, string rowDataId, string rowDataIdName)
         {
             this.bankName = bankName;
             this.url = url;

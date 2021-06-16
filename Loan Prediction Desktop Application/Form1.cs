@@ -18,10 +18,11 @@ namespace Loan_Prediction_Desktop_Application
     {
         public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false;
         public static bool firstload = true;
-        public static double lowestIntrestRate = 10;
+        public static double lowestIntrestRate30 = 10, lowestIntrestRate15 = 10;
         public static double intNF30 = 0;
-        public static double intUS30 = 0;
-        public static double intVS30 = 0;
+        public static double intNF15=0;
+        public static double intUS30 = 0, intUS15=0;
+        public static double intVS30 = 0, intVS15=0;
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -47,9 +48,14 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
-        public static double GetLowestRate()
+        public static double GetLowestRate30()
         {
-            return lowestIntrestRate;
+            return lowestIntrestRate30;
+        }
+
+        public static double GetLowestRate15()
+        {
+            return lowestIntrestRate15;
         }
 
         protected override void WndProc(ref Message m)
@@ -104,23 +110,27 @@ namespace Loan_Prediction_Desktop_Application
 
             if (firstload)
             {
-                GetHtmlAsync("Navy Federal", s1.nf30, s1.statusLabel);
-                GetHtmlAsync("USAA", s1.us30, s1.statusLabel);
-                GetHtmlAsync("Veterans United", s1.vu30, s1.statusLabel);
+                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.statusLabel);
+                GetHtmlAsync("USAA", s1.us30, s1.us15, s1.statusLabel);
+                GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.statusLabel);
                 firstload = false;
             }
             else
             {
                 s1.statusLabel.Text = "Status: Complete";
                 s1.nf30.Text = intNF30.ToString() + "%";
+                s1.nf15.Text = intNF15.ToString() + "%";
+                s1.us15.Text = "Rate N/A on site";
                 s1.us30.Text = intUS30.ToString() + "%";
                 s1.vu30.Text = intVS30.ToString() + "%";
+                s1.vu15.Text = intVS15.ToString() + "%";
+
             }
 
 
         }
 
-        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj, System.Windows.Forms.Label status)
+        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label status)
         {
 
             Dictionary<string, BankInfo> bankDisct = new Dictionary<string, BankInfo>();
@@ -132,7 +142,7 @@ namespace Loan_Prediction_Desktop_Application
                 "table-resp",
                 "",
                 "",
-                2,
+                new int[2]{ 2,1 },
                 "data-th",
                 "Interest Rates As Low As"
                 ));
@@ -144,7 +154,7 @@ namespace Loan_Prediction_Desktop_Application
                 "rates-va-fixed",
                 "class",
                 "va fallback",
-                0,
+                new int[1] { 0 },
                 "",
                 ""
                 ));
@@ -155,7 +165,7 @@ namespace Loan_Prediction_Desktop_Application
                 "rates_table",
                 "",
                 "",
-                2,
+                new int[2] { 2,4 },
                 "",
                 ""
                 ));
@@ -176,70 +186,91 @@ namespace Loan_Prediction_Desktop_Application
             var Rates = RateTable[0].Descendants("tr")
                 .Where(node => node.GetAttributeValue(bank.rowId, "")
                 .Equals(bank.rowIdName)).ToList();
+            string[] value = new string[2] {"",""};
+            int counter = 0;
+            foreach (int item in bank.rowIdIndex)
+            {
+                var RowData = Rates[item].Descendants("td")
+                     .Where(node => node.GetAttributeValue(bank.rowDataId, "")
+                     .Equals(bank.rowDataIdName));
+                
+                if (bank.bankName == "Veterans United")
+                {
+                    string inHtml = "";
+                    foreach (var data in RowData)
+                    {
+                        inHtml = data.InnerHtml.Trim();
 
-            var RowData = Rates[bank.rowIdIndex].Descendants("td")
-                 .Where(node => node.GetAttributeValue(bank.rowDataId, "")
-                 .Equals(bank.rowDataIdName));
-            string value = "";
+                        for (int i = 0; i < 4; i++)
+                        {
+                            value[counter] = value[counter] + inHtml[i];
+                        }
+                        Console.WriteLine(value);
+                        break;
+                    }
+                }
+                if (bank.bankName == "USAA")
+                {
+                    string inHtml = "";
+                    foreach (var data in RowData)
+                    {
+                        inHtml = data.InnerHtml;
+
+                        for (int i = inHtml.Length - 6; i < inHtml.Length; i++)
+                        {
+                            value[counter] = value[counter] + inHtml[i];
+                        }
+                        Console.WriteLine(value);
+                        break;
+                    }
+                }
+                if (bank.bankName == "Navy Federal")
+                {
+
+                    foreach (var data in RowData)
+                        value[counter] = data.InnerHtml;
+                    
+                }
+                counter++;
+            }
+
+            double[] intrestRate = new double[2];
             if (bank.bankName == "Veterans United")
             {
-                string inHtml = "";
-                foreach (var data in RowData)
-                {
-                    inHtml = data.InnerHtml.Trim();
-
-                    for (int i = 0; i < 4; i++)
-                    {
-                        value = value + inHtml[i];
-                    }
-                    Console.WriteLine(value);
-                    break;
-                }
+                for (int i = 0; i < 2; i++)
+                    intrestRate[i] = double.Parse(value[i]);
             }
-            if (bank.bankName == "USAA")
-            {
-                string inHtml = "";
-                foreach (var data in RowData)
-                {
-                    inHtml = data.InnerHtml;
-
-                    for (int i = inHtml.Length - 6; i < inHtml.Length; i++)
-                    {
-                        value = value + inHtml[i];
-                    }
-                    Console.WriteLine(value);
-                    break;
-                }
-            }
-            if (bank.bankName == "Navy Federal")
-            {
-
-                foreach (var data in RowData)
-                    value = data.InnerHtml;
-                Console.WriteLine(value);
-            }
-
-            double intrestRate = 0;
-            if (bank.bankName == "Veterans United")
-                intrestRate = double.Parse(value);
             if (bank.bankName == "Navy Federal" || bank.bankName == "USAA")
-                intrestRate = double.Parse(value.Remove(5, 1));
-            obj.Text = intrestRate.ToString() +"%";
-            if(intrestRate<lowestIntrestRate)
-                lowestIntrestRate = intrestRate;
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if ((bank.bankName == "USAA") && (j == 1))
+                        break;
+                    intrestRate[j] = double.Parse(value[j].Remove(5, 1));
+                }
+            }
+            obj1.Text = intrestRate[0].ToString() +"%";
+            obj2.Text = intrestRate[1].ToString() + "%";
+            
+            if(intrestRate[0]<lowestIntrestRate30)
+                lowestIntrestRate30 = intrestRate[0];
+            if (intrestRate[1] < lowestIntrestRate15)
+                lowestIntrestRate15 = intrestRate[1];
             if (bankSelection.Equals("Navy Federal"))
             {
-                intNF30 = intrestRate;
+                intNF30 = intrestRate[0];
+                intNF15 = intrestRate[1];
                 loadComplete1 = true;
             }
             if (bankSelection.Equals("USAA"))
             {
-                intUS30 = intrestRate;
+                intUS30 = intrestRate[0];
                 loadComplete2 = true;
             }
             if (bankSelection.Equals("Veterans United"))
             {
-                intVS30 = intrestRate;
+                intVS30 = intrestRate[0];
+                intVS15 = intrestRate[1];
                 loadComplete3 = true;
             }
             if (loadComplete1 && loadComplete2 && loadComplete3)
