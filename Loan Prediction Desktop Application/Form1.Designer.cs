@@ -2,7 +2,7 @@
 
 namespace Loan_Prediction_Desktop_Application
 {
-    partial class Form1
+    partial class appFrame
     {
         /// <summary>
         /// Required designer variable.
@@ -61,7 +61,7 @@ namespace Loan_Prediction_Desktop_Application
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(372, 1100);
             this.panel1.TabIndex = 0;
@@ -75,7 +75,7 @@ namespace Loan_Prediction_Desktop_Application
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 369);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(372, 731);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -88,7 +88,7 @@ namespace Loan_Prediction_Desktop_Application
             this.scrapeBtn.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scrapeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.scrapeBtn.Location = new System.Drawing.Point(6, 6);
-            this.scrapeBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.scrapeBtn.Margin = new System.Windows.Forms.Padding(6);
             this.scrapeBtn.Name = "scrapeBtn";
             this.scrapeBtn.Size = new System.Drawing.Size(372, 113);
             this.scrapeBtn.TabIndex = 0;
@@ -104,7 +104,7 @@ namespace Loan_Prediction_Desktop_Application
             this.compareBtn.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compareBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.compareBtn.Location = new System.Drawing.Point(6, 131);
-            this.compareBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.compareBtn.Margin = new System.Windows.Forms.Padding(6);
             this.compareBtn.Name = "compareBtn";
             this.compareBtn.Size = new System.Drawing.Size(372, 113);
             this.compareBtn.TabIndex = 0;
@@ -119,7 +119,7 @@ namespace Loan_Prediction_Desktop_Application
             this.predictBtn.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.predictBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.predictBtn.Location = new System.Drawing.Point(6, 256);
-            this.predictBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.predictBtn.Margin = new System.Windows.Forms.Padding(6);
             this.predictBtn.Name = "predictBtn";
             this.predictBtn.Size = new System.Drawing.Size(372, 113);
             this.predictBtn.TabIndex = 0;
@@ -135,7 +135,7 @@ namespace Loan_Prediction_Desktop_Application
             this.panel4.Controls.Add(this.exitBtn);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(6, 381);
-            this.panel4.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel4.Margin = new System.Windows.Forms.Padding(6);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(372, 350);
             this.panel4.TabIndex = 1;
@@ -146,7 +146,7 @@ namespace Loan_Prediction_Desktop_Application
             this.minimizeBtn.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.minimizeBtn.Location = new System.Drawing.Point(18, 275);
-            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(6);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(152, 52);
             this.minimizeBtn.TabIndex = 2;
@@ -185,7 +185,7 @@ namespace Loan_Prediction_Desktop_Application
             this.exitBtn.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
             this.exitBtn.Location = new System.Drawing.Point(186, 275);
-            this.exitBtn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(6);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(152, 52);
             this.exitBtn.TabIndex = 0;
@@ -200,7 +200,7 @@ namespace Loan_Prediction_Desktop_Application
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.logoBox);
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(372, 379);
             this.panel2.TabIndex = 0;
@@ -208,7 +208,7 @@ namespace Loan_Prediction_Desktop_Application
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(0, 377);
-            this.panel3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panel3.Margin = new System.Windows.Forms.Padding(6);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(374, 392);
             this.panel3.TabIndex = 2;
@@ -233,7 +233,7 @@ namespace Loan_Prediction_Desktop_Application
             this.logoBox.BackColor = System.Drawing.Color.Blue;
             this.logoBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.logoBox.Location = new System.Drawing.Point(0, 0);
-            this.logoBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.logoBox.Margin = new System.Windows.Forms.Padding(6);
             this.logoBox.Name = "logoBox";
             this.logoBox.Size = new System.Drawing.Size(372, 263);
             this.logoBox.TabIndex = 0;
@@ -256,13 +256,13 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.canvasPnl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.canvasPnl.Location = new System.Drawing.Point(372, 94);
-            this.canvasPnl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.canvasPnl.Margin = new System.Windows.Forms.Padding(6);
             this.canvasPnl.Name = "canvasPnl";
             this.canvasPnl.Size = new System.Drawing.Size(1462, 1006);
             this.canvasPnl.TabIndex = 2;
             this.canvasPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.canvasPnl_Paint);
             // 
-            // Form1
+            // appFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -272,8 +272,8 @@ namespace Loan_Prediction_Desktop_Application
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "appFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scrape 2 Compare";
             this.Load += new System.EventHandler(this.Form1_Load);

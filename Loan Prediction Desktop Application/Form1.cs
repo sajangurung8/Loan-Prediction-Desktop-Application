@@ -14,7 +14,7 @@ using System.Net.Http;
 
 namespace Loan_Prediction_Desktop_Application
 {
-    public partial class Form1 : Form
+    public partial class appFrame : Form
     {
         public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false;
         public static bool firstload = true;
@@ -35,7 +35,7 @@ namespace Loan_Prediction_Desktop_Application
                 int nWidthEllipse,
                 int nHeightEllipse
                 );
-        public Form1()
+        public appFrame()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0,0, Width, Height, 25,25));

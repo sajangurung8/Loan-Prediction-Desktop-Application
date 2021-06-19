@@ -26,7 +26,7 @@ namespace Loan_Prediction_Desktop_Application
             this.Term = Term;
             this.NumOfPayments = this.Term * 12;
             this.MonthlyPayment=GetMonthlyPayment();
-            this.PaymentData = CreateReport();
+            this.PaymentData = CreateReport(this.NumOfPayments);
         }
 
         public double GetMonthlyPayment()
@@ -35,13 +35,17 @@ namespace Loan_Prediction_Desktop_Application
             return this.MonthlyPayment;
         }
 
-        public double[,] CreateReport()
+        public double[,] CreateReport(double NumOfPayments)
         {
-            double[,] paymentData = new double[360, 5];
+            double[,] paymentData;
+            if (NumOfPayments == 360)
+                paymentData = new double[360, 5];
+            else
+                paymentData = new double[180, 5];
             double payment = this.MonthlyPayment;
             double intrestPaid = 0, remainingPrincipal = this.Principal;
             int j = 0;
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < NumOfPayments; i++)
             {
                 paymentData[i, j] = payment;
                 j++;
@@ -65,18 +69,32 @@ namespace Loan_Prediction_Desktop_Application
 
         public double[] GetInfoByPaymentMonth(int month)
         {
-            this.CreateReport();
+            this.CreateReport(this.NumOfPayments);
             double[] paymentInfo = new double[5];
-            for(int i=0; i<5; i++)
+            if (month == 0)
             {
-                paymentInfo[i] = this.PaymentData[month-1, i];
+                for (int i = 0; i < 5; i++)
+                {
+                    paymentInfo[i] = this.PaymentData[0, i];
+                }
+            }
+            else
+            {
+                
+                for (int i = 0; i < 5; i++)
+                {
+                    paymentInfo[i] = this.PaymentData[month - 1, i];
+                }
             }
             return paymentInfo;
         }
 
         public string GetReport()
         {
-            return $"Principal: {this.Principal:C2}\nIntrest Rate: {this.ActualIntrestRate}%\nTerm: {this.Term} Years\nMonthly Payment: {this.MonthlyPayment:C2}\n\nBy the end of this loan \nperiod you will have paid\n{this.PaymentData[359,2]:C2} in Intrest";
+            if(this.NumOfPayments == 360)
+                return $"Principal: {this.Principal:C2}\nIntrest Rate: {this.ActualIntrestRate}%\nTerm: {this.Term} Years\nMonthly Payment: {this.MonthlyPayment:C2}\n\nBy the end of this loan \nperiod you will have paid\n{this.PaymentData[359,2]:C2} in Intrest";
+            else
+                return $"Principal: {this.Principal:C2}\nIntrest Rate: {this.ActualIntrestRate}%\nTerm: {this.Term} Years\nMonthly Payment: {this.MonthlyPayment:C2}\n\nBy the end of this loan \nperiod you will have paid\n{this.PaymentData[179, 2]:C2} in Intrest";
         }
     }
 }
