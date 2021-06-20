@@ -51,6 +51,7 @@ namespace Loan_Prediction_Desktop_Application
             this.intrestSoFarLbl = new System.Windows.Forms.Label();
             this.calculationStatusLbl = new System.Windows.Forms.Label();
             this.yearLbl = new System.Windows.Forms.Label();
+            this.noteCompare = new System.Windows.Forms.Label();
             this.loanEstimateDisplayPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loanTrackBar)).BeginInit();
             this.SuspendLayout();
@@ -243,9 +244,9 @@ namespace Loan_Prediction_Desktop_Application
             this.principalProgressLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.principalProgressLbl.Location = new System.Drawing.Point(36, 735);
             this.principalProgressLbl.Name = "principalProgressLbl";
-            this.principalProgressLbl.Size = new System.Drawing.Size(540, 37);
+            this.principalProgressLbl.Size = new System.Drawing.Size(607, 37);
             this.principalProgressLbl.TabIndex = 1;
-            this.principalProgressLbl.Text = "Principal progress at the end of year:";
+            this.principalProgressLbl.Text = "Principal left to be paid at the end of year:";
             // 
             // intrestPaidLabel
             // 
@@ -331,6 +332,18 @@ namespace Loan_Prediction_Desktop_Application
             this.yearLbl.Text = "Year";
             this.yearLbl.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
+            // noteCompare
+            // 
+            this.noteCompare.AutoSize = true;
+            this.noteCompare.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteCompare.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.noteCompare.Location = new System.Drawing.Point(42, 935);
+            this.noteCompare.Name = "noteCompare";
+            this.noteCompare.Size = new System.Drawing.Size(1241, 25);
+            this.noteCompare.TabIndex = 1;
+            this.noteCompare.Text = "*Note: Monthly payment on this tab only include intrest and principal. Predict ta" +
+    "b lets you add other parts of a mortgage payment.";
+            // 
             // compareFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -340,6 +353,7 @@ namespace Loan_Prediction_Desktop_Application
             this.Controls.Add(this.loanProgressBar);
             this.Controls.Add(this.intrestPaidLabel);
             this.Controls.Add(this.calculationStatusLbl);
+            this.Controls.Add(this.noteCompare);
             this.Controls.Add(this.principalProgressLbl);
             this.Controls.Add(this.tbInstructLbl);
             this.Controls.Add(this.loanTrackBar);
@@ -361,6 +375,7 @@ namespace Loan_Prediction_Desktop_Application
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "compareFrm";
             this.Text = "compareFrm";
+            this.Load += new System.EventHandler(this.compareFrm_Load);
             this.loanEstimateDisplayPanel.ResumeLayout(false);
             this.loanEstimateDisplayPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loanTrackBar)).EndInit();
@@ -393,5 +408,6 @@ namespace Loan_Prediction_Desktop_Application
         private System.Windows.Forms.Label intrestSoFarLbl;
         private System.Windows.Forms.Label calculationStatusLbl;
         private System.Windows.Forms.Label yearLbl;
+        private System.Windows.Forms.Label noteCompare;
     }
 }

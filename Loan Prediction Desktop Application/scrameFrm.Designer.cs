@@ -43,6 +43,9 @@ namespace Loan_Prediction_Desktop_Application
             this.nf15 = new System.Windows.Forms.Label();
             this.vu15 = new System.Windows.Forms.Label();
             this.us15 = new System.Windows.Forms.Label();
+            this.changeInNF = new System.Windows.Forms.Label();
+            this.changeInUS = new System.Windows.Forms.Label();
+            this.changeInVU = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nfLabel
@@ -97,7 +100,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.thirtyLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thirtyLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.thirtyLabel.Location = new System.Drawing.Point(426, 213);
+            this.thirtyLabel.Location = new System.Drawing.Point(393, 213);
             this.thirtyLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.thirtyLabel.Name = "thirtyLabel";
             this.thirtyLabel.Size = new System.Drawing.Size(208, 71);
@@ -109,7 +112,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.fifteenLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fifteenLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.fifteenLabel.Location = new System.Drawing.Point(706, 213);
+            this.fifteenLabel.Location = new System.Drawing.Point(624, 213);
             this.fifteenLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.fifteenLabel.Name = "fifteenLabel";
             this.fifteenLabel.Size = new System.Drawing.Size(208, 71);
@@ -121,7 +124,7 @@ namespace Loan_Prediction_Desktop_Application
             // 
             this.changeLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.changeLabel.Location = new System.Drawing.Point(970, 213);
+            this.changeLabel.Location = new System.Drawing.Point(913, 213);
             this.changeLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.changeLabel.Name = "changeLabel";
             this.changeLabel.Size = new System.Drawing.Size(402, 71);
@@ -134,7 +137,7 @@ namespace Loan_Prediction_Desktop_Application
             this.nf30.AutoSize = true;
             this.nf30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nf30.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.nf30.Location = new System.Drawing.Point(458, 313);
+            this.nf30.Location = new System.Drawing.Point(427, 313);
             this.nf30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nf30.Name = "nf30";
             this.nf30.Size = new System.Drawing.Size(143, 45);
@@ -147,7 +150,7 @@ namespace Loan_Prediction_Desktop_Application
             this.us30.AutoSize = true;
             this.us30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.us30.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.us30.Location = new System.Drawing.Point(458, 454);
+            this.us30.Location = new System.Drawing.Point(427, 454);
             this.us30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.us30.Name = "us30";
             this.us30.Size = new System.Drawing.Size(143, 45);
@@ -160,7 +163,7 @@ namespace Loan_Prediction_Desktop_Application
             this.vu30.AutoSize = true;
             this.vu30.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vu30.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.vu30.Location = new System.Drawing.Point(458, 594);
+            this.vu30.Location = new System.Drawing.Point(427, 594);
             this.vu30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.vu30.Name = "vu30";
             this.vu30.Size = new System.Drawing.Size(143, 45);
@@ -186,7 +189,7 @@ namespace Loan_Prediction_Desktop_Application
             this.nf15.AutoSize = true;
             this.nf15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nf15.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.nf15.Location = new System.Drawing.Point(730, 313);
+            this.nf15.Location = new System.Drawing.Point(659, 313);
             this.nf15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nf15.Name = "nf15";
             this.nf15.Size = new System.Drawing.Size(143, 45);
@@ -199,7 +202,7 @@ namespace Loan_Prediction_Desktop_Application
             this.vu15.AutoSize = true;
             this.vu15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vu15.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.vu15.Location = new System.Drawing.Point(730, 594);
+            this.vu15.Location = new System.Drawing.Point(659, 594);
             this.vu15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.vu15.Name = "vu15";
             this.vu15.Size = new System.Drawing.Size(143, 45);
@@ -212,13 +215,52 @@ namespace Loan_Prediction_Desktop_Application
             this.us15.AutoSize = true;
             this.us15.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.us15.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.us15.Location = new System.Drawing.Point(730, 454);
+            this.us15.Location = new System.Drawing.Point(659, 454);
             this.us15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.us15.Name = "us15";
             this.us15.Size = new System.Drawing.Size(143, 45);
             this.us15.TabIndex = 4;
             this.us15.Text = "Scraping";
             this.us15.Click += new System.EventHandler(this.nf30_Click);
+            // 
+            // changeInNF
+            // 
+            this.changeInNF.AutoSize = true;
+            this.changeInNF.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeInNF.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.changeInNF.Location = new System.Drawing.Point(914, 313);
+            this.changeInNF.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.changeInNF.Name = "changeInNF";
+            this.changeInNF.Size = new System.Drawing.Size(262, 45);
+            this.changeInNF.TabIndex = 4;
+            this.changeInNF.Text = "Checking History";
+            this.changeInNF.Click += new System.EventHandler(this.nf30_Click);
+            // 
+            // changeInUS
+            // 
+            this.changeInUS.AutoSize = true;
+            this.changeInUS.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeInUS.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.changeInUS.Location = new System.Drawing.Point(914, 454);
+            this.changeInUS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.changeInUS.Name = "changeInUS";
+            this.changeInUS.Size = new System.Drawing.Size(262, 45);
+            this.changeInUS.TabIndex = 4;
+            this.changeInUS.Text = "Checking History";
+            this.changeInUS.Click += new System.EventHandler(this.nf30_Click);
+            // 
+            // changeInVU
+            // 
+            this.changeInVU.AutoSize = true;
+            this.changeInVU.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeInVU.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.changeInVU.Location = new System.Drawing.Point(914, 594);
+            this.changeInVU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.changeInVU.Name = "changeInVU";
+            this.changeInVU.Size = new System.Drawing.Size(262, 45);
+            this.changeInVU.TabIndex = 4;
+            this.changeInVU.Text = "Checking History";
+            this.changeInVU.Click += new System.EventHandler(this.nf30_Click);
             // 
             // scrameFrm
             // 
@@ -231,6 +273,9 @@ namespace Loan_Prediction_Desktop_Application
             this.Controls.Add(this.us30);
             this.Controls.Add(this.us15);
             this.Controls.Add(this.vu15);
+            this.Controls.Add(this.changeInVU);
+            this.Controls.Add(this.changeInUS);
+            this.Controls.Add(this.changeInNF);
             this.Controls.Add(this.nf15);
             this.Controls.Add(this.nf30);
             this.Controls.Add(this.label1);
@@ -241,7 +286,7 @@ namespace Loan_Prediction_Desktop_Application
             this.Controls.Add(this.ratesLabel);
             this.Controls.Add(this.nfLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "scrameFrm";
             this.Text = "scrameFrm";
             this.ResumeLayout(false);
@@ -265,5 +310,8 @@ namespace Loan_Prediction_Desktop_Application
         public System.Windows.Forms.Label nf15;
         public System.Windows.Forms.Label vu15;
         public System.Windows.Forms.Label us15;
+        public System.Windows.Forms.Label changeInNF;
+        public System.Windows.Forms.Label changeInUS;
+        public System.Windows.Forms.Label changeInVU;
     }
 }

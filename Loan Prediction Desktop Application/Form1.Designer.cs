@@ -30,6 +30,7 @@ namespace Loan_Prediction_Desktop_Application
         /// </summary>
         public void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(appFrame));
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.scrapeBtn = new System.Windows.Forms.Button();
@@ -218,7 +219,7 @@ namespace Loan_Prediction_Desktop_Application
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.label1.Location = new System.Drawing.Point(20, 269);
+            this.label1.Location = new System.Drawing.Point(19, 273);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 90);
@@ -230,14 +231,17 @@ namespace Loan_Prediction_Desktop_Application
             // 
             // logoBox
             // 
-            this.logoBox.BackColor = System.Drawing.Color.Blue;
+            this.logoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.logoBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logoBox.Image = ((System.Drawing.Image)(resources.GetObject("logoBox.Image")));
             this.logoBox.Location = new System.Drawing.Point(0, 0);
             this.logoBox.Margin = new System.Windows.Forms.Padding(6);
             this.logoBox.Name = "logoBox";
-            this.logoBox.Size = new System.Drawing.Size(372, 263);
+            this.logoBox.Size = new System.Drawing.Size(372, 250);
+            this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoBox.TabIndex = 0;
             this.logoBox.TabStop = false;
+            this.logoBox.Click += new System.EventHandler(this.logoBox_Click);
             // 
             // titleLbl
             // 

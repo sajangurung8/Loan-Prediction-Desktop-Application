@@ -16,13 +16,16 @@ namespace Loan_Prediction_Desktop_Application
 {
     public partial class appFrame : Form
     {
-        public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false;
+        public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false, noData = false;
         public static bool firstload = true;
         public static double lowestIntrestRate30 = 10, lowestIntrestRate15 = 10;
         public static double intNF30 = 0;
         public static double intNF15=0;
         public static double intUS30 = 0, intUS15=0;
         public static double intVS30 = 0, intVS15=0;
+        public static string[] previousData;
+        public static string change1NF = "", change2NF = "", change1US = "", change1VU = "", change2VU = "";
+        public static string changeDateNF="", changeDateUS="", changeDateVU="";
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -69,6 +72,11 @@ namespace Loan_Prediction_Desktop_Application
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
+        private void logoBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -107,12 +115,15 @@ namespace Loan_Prediction_Desktop_Application
             s1.FormBorderStyle = FormBorderStyle.None;
             this.canvasPnl.Controls.Add(s1);
             s1.Show();
+            RateHistoryUpdater watcher = new RateHistoryUpdater();
+            previousData = watcher.checkHistory();
+            noData = (previousData.Length <= 1) ? true : false;
 
             if (firstload)
             {
-                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.statusLabel);
-                GetHtmlAsync("USAA", s1.us30, s1.us15, s1.statusLabel);
-                GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.statusLabel);
+                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.changeInNF,s1.statusLabel);
+                GetHtmlAsync("USAA", s1.us30, s1.us15, s1.changeInUS, s1.statusLabel);
+                GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.changeInVU, s1.statusLabel);
                 firstload = false;
             }
             else
@@ -124,13 +135,15 @@ namespace Loan_Prediction_Desktop_Application
                 s1.us30.Text = intUS30.ToString() + "%";
                 s1.vu30.Text = intVS30.ToString() + "%";
                 s1.vu15.Text = intVS15.ToString() + "%";
-
+                s1.changeInNF.Text = $"Change since {changeDateNF}\n{change1NF}\n{change2NF}";
+                s1.changeInUS.Text = $"Change since {changeDateUS}\n{change1US}";
+                s1.changeInVU.Text = $"Change since {changeDateVU}\n{change1VU}\n{change2VU}";
             }
 
 
         }
 
-        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label status)
+        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label obj3, System.Windows.Forms.Label status)
         {
 
             Dictionary<string, BankInfo> bankDisct = new Dictionary<string, BankInfo>();
@@ -275,6 +288,112 @@ namespace Loan_Prediction_Desktop_Application
             }
             if (loadComplete1 && loadComplete2 && loadComplete3)
                 status.Text = "Status: Complete";
+            if (bankSelection.Equals("USAA")) obj2.Text = "Rate N/A on site";
+
+            if (!noData)
+            {
+                if(bankSelection=="Navy Federal")
+                {
+                    foreach(string line in previousData)
+                    {
+                        string[] myData = line.Split(' ');
+                        if (myData[1].Equals("NavyFederal"))
+                        { 
+                            double change30 = intNF30 - double.Parse(myData[2]);
+                            double change15 = intNF15 - double.Parse(myData[3]);
+                            changeDateNF = myData[0];
+                            if (change30 > 0)
+                            {
+                                change1NF = $"30 year rate increased by {Math.Abs(change30)}";
+                            }else if(change30 == 0)
+                            {
+                                change1NF = $"No change in 30 year rate";
+                            }
+                            else{
+                                change1NF = $"30 year rate decreased by {Math.Abs(change15)}";
+                            }
+                            if (change15 > 0)
+                            {
+                                change2NF = $"15 year rate increased by {Math.Abs(change15)}";
+                            }
+                            else if (change30 == 0)
+                            {
+                                change2NF = $"No change in 30 year rate";
+                            }
+                            else
+                            {
+                                change2NF = $"15 year rate decreased by {Math.Abs(change15)}";
+                            }
+                            obj3.Text = $"Change since {changeDateNF}\n{change1NF}\n{change2NF}";
+
+                        }
+                    }
+                }else if (bankSelection == "USAA")
+                {
+                    foreach (string line in previousData)
+                    {
+                        string[] myData = line.Split(' ');
+                        if (myData[1].Equals("USAA"))
+                        {
+                            double change30 = intUS30 - double.Parse(myData[2]);
+                            changeDateUS = myData[0];
+                            if (change30 > 0)
+                            {
+                                change1US = $"30 year rate increased by {Math.Abs(change30)}";
+                            }
+                            else if (change30 == 0)
+                            {
+                                change1US = $"No change in 30 year rate";
+                            }
+                            else
+                            {
+                                change1US = $"30 year rate decreased by {Math.Abs(change30)}";
+                            }
+
+                            obj3.Text = $"Change since {changeDateUS}\n{change1US}";
+
+                        }
+                    }
+                }
+                else if (bankSelection == "Veterans United")
+                {
+                    foreach (string line in previousData)
+                    {
+                        string[] myData = line.Split(' ');
+                        if (myData[1].Equals("VeteransUnited"))
+                        {
+                            changeDateVU = myData[0];
+                            double change30 = intVS30 - double.Parse(myData[2]);
+                            double change15 = intVS15 - double.Parse(myData[3]);
+                            if (change30 > 0)
+                            {
+                                change1VU = $"30 year rate increased by {Math.Abs(change30)}";
+                            }
+                            else if (change30 == 0)
+                            {
+                                change1VU = $"No change in 30 year rate";
+                            }
+                            else
+                            {
+                                change1VU = $"30 year rate decreased by {Math.Abs(change30)}";
+                            }
+                            if (change15 > 0)
+                            {
+                                change2VU = $"15 year rate increased by {Math.Abs(change15)}";
+                            }
+                            else if (change15 == 0)
+                            {
+                                change2VU = $"No change in 15 year rate";
+                            }
+                            else
+                            {
+                                change2VU = $"15 year rate decreased by {Math.Abs(change15)}";
+                            }
+                            obj3.Text = $"Change since {changeDateVU}\n{change1VU}\n{change2VU}";
+                        }
+                    }
+                }
+            }
         }
 
         private void compareBtn_Click(object sender, EventArgs e)
@@ -298,6 +417,8 @@ namespace Loan_Prediction_Desktop_Application
             compareBtn.BackColor = Color.FromArgb(24, 30, 54);
             scrapeBtn.BackColor = Color.FromArgb(24, 30, 54);
             titleLbl.Text = "Let's see if you will qualify for a Home Loan";
+
+            this.canvasPnl.Controls.Clear();
 
         }
 

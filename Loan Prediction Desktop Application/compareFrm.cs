@@ -28,23 +28,40 @@ namespace Loan_Prediction_Desktop_Application
 
         private void estimateBtn_Click(object sender, EventArgs e)
         {
-            double p = double.Parse(loanAmmountTB.Text);
-            double r = double.Parse(intrestRateTB.Text);
-            double t = (thirtyRadioBtn.Checked) ? 30.0 : 15.0;
-
-            this.myMortgage = new MortgageEstimate(p, r,t);
-
-            loanDataLabel.ForeColor = Color.FromArgb(227,227,227);
-            loanDataLabel.Text = myMortgage.GetReport();
-            loanTrackBar.Enabled = true;
-
-            if (fifteenRadioBtn.Checked)
+            try
             {
-                loanTrackBar.Maximum = 15;
+                double p = double.Parse(loanAmmountTB.Text);
+                double r = double.Parse(intrestRateTB.Text);
+                double t = (thirtyRadioBtn.Checked) ? 30.0 : 15.0;
+
+                if (p < 0 || r < 0) throw new ContainsNegativeException("Loan ammount and rate must be positive");
+                if (r == 0) throw new RateZeroException("Intrest rate cannot be 0. I dont think a bank will lend you money for free.");
+                this.myMortgage = new MortgageEstimate(p, r, t);
+
+                loanDataLabel.ForeColor = Color.FromArgb(227, 227, 227);
+                loanDataLabel.Text = myMortgage.GetReport();
+                loanTrackBar.Enabled = true;
+
+                if (fifteenRadioBtn.Checked)
+                {
+                    loanTrackBar.Maximum = 15;
+                }
+                else
+                {
+                    loanTrackBar.Maximum = 30;
+                }
+            }catch (ArgumentNullException){
+                MessageBox.Show("All input feild must be filled");
             }
-            else
+            catch (FormatException)
             {
-                loanTrackBar.Maximum = 30;
+                MessageBox.Show("All input must be numeric");
+            }catch (ContainsNegativeException E)
+            {
+                MessageBox.Show(E.Message);
+            }catch (RateZeroException E)
+            {
+                MessageBox.Show(E.Message);
             }
 
 
@@ -67,8 +84,7 @@ namespace Loan_Prediction_Desktop_Application
 
         private void loanAmmountTB_TextChanged(object sender, EventArgs e)
         {
-            if(loanAmmountTB.Text.Equals("Principal"))
-                loanAmmountTB.Text = "";
+           
         }
 
         private void loanTrackBar_Scroll(object sender, EventArgs e)
@@ -78,6 +94,7 @@ namespace Loan_Prediction_Desktop_Application
             double[] paymentData = myMortgage.GetInfoByPaymentMonth(loanTrackBar.Value * 12);
             principalSoFarLbl.Text = $"{paymentData[4]:C2}";
             intrestSoFarLbl.Text = $"{paymentData[2]:C2}";
+            
             loanProgressBar.Value = (int)((myMortgage.Principal - paymentData[4]) / myMortgage.Principal * 100);
         }
 
@@ -89,6 +106,11 @@ namespace Loan_Prediction_Desktop_Application
         private void thirtyRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void compareFrm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
