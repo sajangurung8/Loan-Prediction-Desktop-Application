@@ -46,6 +46,7 @@ namespace Loan_Prediction_Desktop_Application
             this.changeInNF = new System.Windows.Forms.Label();
             this.changeInUS = new System.Windows.Forms.Label();
             this.changeInVU = new System.Windows.Forms.Label();
+            this.historyUpdateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nfLabel
@@ -262,12 +263,26 @@ namespace Loan_Prediction_Desktop_Application
             this.changeInVU.Text = "Checking History";
             this.changeInVU.Click += new System.EventHandler(this.nf30_Click);
             // 
+            // historyUpdateButton
+            // 
+            this.historyUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.historyUpdateButton.Font = new System.Drawing.Font("Nirmala UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyUpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.historyUpdateButton.Location = new System.Drawing.Point(913, 777);
+            this.historyUpdateButton.Name = "historyUpdateButton";
+            this.historyUpdateButton.Size = new System.Drawing.Size(263, 101);
+            this.historyUpdateButton.TabIndex = 8;
+            this.historyUpdateButton.Text = "Update";
+            this.historyUpdateButton.UseVisualStyleBackColor = true;
+            this.historyUpdateButton.Click += new System.EventHandler(this.historyUpdateButton_Click);
+            // 
             // scrameFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1462, 1006);
+            this.Controls.Add(this.historyUpdateButton);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.vu30);
             this.Controls.Add(this.us30);
@@ -313,5 +328,6 @@ namespace Loan_Prediction_Desktop_Application
         public System.Windows.Forms.Label changeInNF;
         public System.Windows.Forms.Label changeInUS;
         public System.Windows.Forms.Label changeInVU;
+        public System.Windows.Forms.Button historyUpdateButton;
     }
 }

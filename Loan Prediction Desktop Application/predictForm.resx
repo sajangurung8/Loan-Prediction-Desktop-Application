@@ -117,23 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="descLabel.Text" xml:space="preserve">
-    <value>Hi I am Scrape2Compare. I am designed to help you compare rates of the top 3 
-VA Lenders without using a web browser, compare mortage payments depending 
-on your input like loan ammount, intrestrate, etc and predict if you will qualify for a 
-loan ammount you are considering and provide suggestions on what could help 
-you to qualify in near future.
-
-You can see 3 buttons on left side of this window. 
-The functions are self explanatory.
-
-I hope you will enjoy using my features.   
-</value>
-  </data>
-  <data name="noteLabel.Text" xml:space="preserve">
-    <value>***Note: This windows application is an estimating tool only and all these features are performed within
- this application only; which means: using Predict feature for this application will not qualify/ disqualify you 
-from a loan or the intrest rate displayed on Scrape section is the best rate Lenders are offering for specific 
-loan ammount and conditions depending on customer. </value>
-  </data>
 </root>

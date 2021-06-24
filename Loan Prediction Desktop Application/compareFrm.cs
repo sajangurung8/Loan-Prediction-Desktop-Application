@@ -77,9 +77,9 @@ namespace Loan_Prediction_Desktop_Application
             else if(useLowestCB.Checked && fifteenRadioBtn.Checked)
             {
                 double i = appFrame.GetLowestRate15();
-                intrestRateTB.Text = (intrestRateTB.Equals(10)) ? "Scrape has not begun" : intrestRateTB.ToString();
+                intrestRateTB.Text = (intrestRateTB.Equals(10)) ? "Scrape has not begun" : i.ToString();
             }else
-                intrestRateTB.Text = "Enter custom rate";
+                intrestRateTB.Text = "";
         }
 
         private void loanAmmountTB_TextChanged(object sender, EventArgs e)
@@ -100,11 +100,14 @@ namespace Loan_Prediction_Desktop_Application
 
         private void fifteenRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (useLowestCB.Checked && !appFrame.GetLowestRate15().Equals(10))
+                intrestRateTB.Text = appFrame.GetLowestRate15().ToString();
         }
 
         private void thirtyRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
+            if (useLowestCB.Checked && !appFrame.GetLowestRate30().Equals(10))
+                intrestRateTB.Text = appFrame.GetLowestRate30().ToString(); 
 
         }
 

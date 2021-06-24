@@ -51,6 +51,16 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        public static string[] GetNewHistory()
+        {
+            string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
+            string nfData = $"{todayDate} NavyFederal {intNF30} {intNF15}";
+            string usData = $"{todayDate} USAA {intUS30}";
+            string vuData = $"{todayDate} VeteransUnited {intVS30} {intVS15}";
+            string[] data = new string[3] { nfData, usData, vuData };
+            return data;
+        }
+
         public static double GetLowestRate30()
         {
             return lowestIntrestRate30;
@@ -114,6 +124,10 @@ namespace Loan_Prediction_Desktop_Application
             scrameFrm s1 = new scrameFrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             s1.FormBorderStyle = FormBorderStyle.None;
             this.canvasPnl.Controls.Add(s1);
+            if (loadComplete1 && loadComplete2 && loadComplete3)
+            {
+                s1.historyUpdateButton.Visible = true;
+            }
             s1.Show();
             RateHistoryUpdater watcher = new RateHistoryUpdater();
             previousData = watcher.checkHistory();
@@ -121,9 +135,10 @@ namespace Loan_Prediction_Desktop_Application
 
             if (firstload)
             {
-                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.changeInNF,s1.statusLabel);
-                GetHtmlAsync("USAA", s1.us30, s1.us15, s1.changeInUS, s1.statusLabel);
-                GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.changeInVU, s1.statusLabel);
+                
+                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.changeInNF,s1.statusLabel, s1.historyUpdateButton);
+                GetHtmlAsync("USAA", s1.us30, s1.us15, s1.changeInUS, s1.statusLabel, s1.historyUpdateButton);
+                GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.changeInVU, s1.statusLabel, s1.historyUpdateButton);
                 firstload = false;
             }
             else
@@ -138,16 +153,18 @@ namespace Loan_Prediction_Desktop_Application
                 s1.changeInNF.Text = $"Change since {changeDateNF}\n{change1NF}\n{change2NF}";
                 s1.changeInUS.Text = $"Change since {changeDateUS}\n{change1US}";
                 s1.changeInVU.Text = $"Change since {changeDateVU}\n{change1VU}\n{change2VU}";
+                
             }
 
 
         }
 
-        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label obj3, System.Windows.Forms.Label status)
+        private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label obj3, System.Windows.Forms.Label status, System.Windows.Forms.Button btn)
         {
-
+            // creating dictionary for lender data
             Dictionary<string, BankInfo> bankDisct = new Dictionary<string, BankInfo>();
 
+            // adding all 3 lender data to disctionary
             bankDisct.Add("Navy Federal", new BankInfo(
                 "Navy Federal",
                 "https://www.navyfederal.org/loans-cards/mortgage/mortgage-rates/va-loans.html",
@@ -183,19 +200,23 @@ namespace Loan_Prediction_Desktop_Application
                 ""
                 ));
 
-
+            // gets lender detail form use selection
             BankInfo bank = bankDisct[bankSelection];
 
+            // creates a class to sending HTTP Request and receiving HTTP response
             var httpClient = new HttpClient();
+            // sends a GET request to the url and returns the responce in string format asynchronously
             var html = await httpClient.GetStringAsync(bank.url);
 
+            //uses html agility pack to parse html
             var htmlDocument = new HtmlAgilityPack.HtmlDocument();
             htmlDocument.LoadHtml(html);
 
+            // gets loan rates table from html
             var RateTable = htmlDocument.DocumentNode.Descendants("table")
                 .Where(node => node.GetAttributeValue(bank.tableId, "")
                 .Equals(bank.tableIdName)).ToList();
-
+            // gets the rows for rates table
             var Rates = RateTable[0].Descendants("tr")
                 .Where(node => node.GetAttributeValue(bank.rowId, "")
                 .Equals(bank.rowIdName)).ToList();
@@ -203,6 +224,7 @@ namespace Loan_Prediction_Desktop_Application
             int counter = 0;
             foreach (int item in bank.rowIdIndex)
             {
+                // gets data from specific cell in the table for 30 years or 15 years
                 var RowData = Rates[item].Descendants("td")
                      .Where(node => node.GetAttributeValue(bank.rowDataId, "")
                      .Equals(bank.rowDataIdName));
@@ -267,7 +289,7 @@ namespace Loan_Prediction_Desktop_Application
             
             if(intrestRate[0]<lowestIntrestRate30)
                 lowestIntrestRate30 = intrestRate[0];
-            if (intrestRate[1] < lowestIntrestRate15)
+            if ((intrestRate[1] < lowestIntrestRate15) && bankSelection!="USAA")
                 lowestIntrestRate15 = intrestRate[1];
             if (bankSelection.Equals("Navy Federal"))
             {
@@ -287,7 +309,10 @@ namespace Loan_Prediction_Desktop_Application
                 loadComplete3 = true;
             }
             if (loadComplete1 && loadComplete2 && loadComplete3)
+            {
                 status.Text = "Status: Complete";
+                btn.Visible = true;
+            }
             if (bankSelection.Equals("USAA")) obj2.Text = "Rate N/A on site";
 
             if (!noData)
@@ -419,6 +444,10 @@ namespace Loan_Prediction_Desktop_Application
             titleLbl.Text = "Let's see if you will qualify for a Home Loan";
 
             this.canvasPnl.Controls.Clear();
+            predictForm predictCanvas = new predictForm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            predictCanvas.FormBorderStyle = FormBorderStyle.None;
+            this.canvasPnl.Controls.Add(predictCanvas);
+            predictCanvas.Show();
 
         }
 

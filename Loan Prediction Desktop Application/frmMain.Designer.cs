@@ -41,8 +41,9 @@ namespace Loan_Prediction_Desktop_Application
             this.welcomeMessage.Font = new System.Drawing.Font("Nirmala UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcomeMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.welcomeMessage.Location = new System.Drawing.Point(0, 0);
+            this.welcomeMessage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.welcomeMessage.Name = "welcomeMessage";
-            this.welcomeMessage.Size = new System.Drawing.Size(731, 109);
+            this.welcomeMessage.Size = new System.Drawing.Size(1462, 210);
             this.welcomeMessage.TabIndex = 1;
             this.welcomeMessage.Text = "Welcome";
             this.welcomeMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -52,9 +53,10 @@ namespace Loan_Prediction_Desktop_Application
             this.descLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.descLabel.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.descLabel.Location = new System.Drawing.Point(0, 109);
+            this.descLabel.Location = new System.Drawing.Point(0, 210);
+            this.descLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.descLabel.Name = "descLabel";
-            this.descLabel.Size = new System.Drawing.Size(731, 299);
+            this.descLabel.Size = new System.Drawing.Size(1462, 575);
             this.descLabel.TabIndex = 2;
             this.descLabel.Text = resources.GetString("descLabel.Text");
             this.descLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,24 +66,26 @@ namespace Loan_Prediction_Desktop_Application
             this.noteLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.noteLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.noteLabel.Location = new System.Drawing.Point(0, 455);
+            this.noteLabel.Location = new System.Drawing.Point(0, 875);
+            this.noteLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(731, 68);
+            this.noteLabel.Size = new System.Drawing.Size(1462, 131);
             this.noteLabel.TabIndex = 3;
             this.noteLabel.Text = resources.GetString("noteLabel.Text");
             this.noteLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(731, 523);
+            this.ClientSize = new System.Drawing.Size(1462, 1006);
             this.Controls.Add(this.noteLabel);
             this.Controls.Add(this.descLabel);
             this.Controls.Add(this.welcomeMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.ResumeLayout(false);

@@ -15,6 +15,7 @@ namespace Loan_Prediction_Desktop_Application
         public scrameFrm()
         {
             InitializeComponent();
+            this.historyUpdateButton.Visible = false;
         }
 
         private void nf30_Click(object sender, EventArgs e)
@@ -25,6 +26,17 @@ namespace Loan_Prediction_Desktop_Application
         private void statusLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void historyUpdateButton_Click(object sender, EventArgs e)
+        {
+            
+            string[] data = appFrame.GetNewHistory();
+            RateHistoryUpdater writer = new RateHistoryUpdater();
+            if (writer.updateHistory(data))
+                this.statusLabel.Text = "Status: Scrape and History Update Complete.";
+            else
+                this.statusLabel.Text = "Status: Scrape Complete, History update unsuccessful.";
         }
     }
 }

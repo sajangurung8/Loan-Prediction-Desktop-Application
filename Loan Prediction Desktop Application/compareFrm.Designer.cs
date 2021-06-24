@@ -106,7 +106,6 @@ namespace Loan_Prediction_Desktop_Application
             this.loanAmmountTB.Name = "loanAmmountTB";
             this.loanAmmountTB.Size = new System.Drawing.Size(220, 38);
             this.loanAmmountTB.TabIndex = 1;
-            this.loanAmmountTB.Text = "Principal";
             this.loanAmmountTB.TextChanged += new System.EventHandler(this.loanAmmountTB_TextChanged);
             // 
             // intrestRateTB
@@ -120,7 +119,6 @@ namespace Loan_Prediction_Desktop_Application
             this.intrestRateTB.Name = "intrestRateTB";
             this.intrestRateTB.Size = new System.Drawing.Size(220, 38);
             this.intrestRateTB.TabIndex = 1;
-            this.intrestRateTB.Text = "Rate";
             // 
             // useLowestCB
             // 
