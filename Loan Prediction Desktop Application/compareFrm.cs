@@ -82,11 +82,6 @@ namespace Loan_Prediction_Desktop_Application
                 intrestRateTB.Text = "";
         }
 
-        private void loanAmmountTB_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void loanTrackBar_Scroll(object sender, EventArgs e)
         {
             loanProgressBar.Visible = true;

@@ -16,7 +16,7 @@ namespace Loan_Prediction_Desktop_Application
 {
     public partial class appFrame : Form
     {
-        public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false, noData = false;
+        public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false, noData = false, historyUpdated = false;
         public static bool firstload = true;
         public static double lowestIntrestRate30 = 10, lowestIntrestRate15 = 10;
         public static double intNF30 = 0;
@@ -124,7 +124,7 @@ namespace Loan_Prediction_Desktop_Application
             scrameFrm s1 = new scrameFrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             s1.FormBorderStyle = FormBorderStyle.None;
             this.canvasPnl.Controls.Add(s1);
-            if (loadComplete1 && loadComplete2 && loadComplete3)
+            if (loadComplete1 && loadComplete2 && loadComplete3 && !historyUpdated)
             {
                 s1.historyUpdateButton.Visible = true;
             }
@@ -143,6 +143,7 @@ namespace Loan_Prediction_Desktop_Application
             }
             else
             {
+                previousData = watcher.checkHistory();
                 s1.statusLabel.Text = "Status: Complete";
                 s1.nf30.Text = intNF30.ToString() + "%";
                 s1.nf15.Text = intNF15.ToString() + "%";
@@ -380,6 +381,8 @@ namespace Loan_Prediction_Desktop_Application
                         }
                     }
                 }
+                
+
                 else if (bankSelection == "Veterans United")
                 {
                     foreach (string line in previousData)
@@ -418,6 +421,10 @@ namespace Loan_Prediction_Desktop_Application
                         }
                     }
                 }
+            }
+            else
+            {
+                obj3.Text = "History not found";
             }
         }
 

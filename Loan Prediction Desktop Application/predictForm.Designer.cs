@@ -227,6 +227,7 @@ namespace Loan_Prediction_Desktop_Application
             this.predictNowButton.TabIndex = 7;
             this.predictNowButton.Text = "Predict Now";
             this.predictNowButton.UseVisualStyleBackColor = true;
+            this.predictNowButton.Click += new System.EventHandler(this.predictNowButton_Click);
             // 
             // oddsLabel
             // 
@@ -236,7 +237,7 @@ namespace Loan_Prediction_Desktop_Application
             this.oddsLabel.Location = new System.Drawing.Point(159, 655);
             this.oddsLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.oddsLabel.Name = "oddsLabel";
-            this.oddsLabel.Size = new System.Drawing.Size(0, 90);
+            this.oddsLabel.Size = new System.Drawing.Size(0, 45);
             this.oddsLabel.TabIndex = 3;
             // 
             // predictOutPutLabel
@@ -244,7 +245,7 @@ namespace Loan_Prediction_Desktop_Application
             this.predictOutPutLabel.AutoSize = true;
             this.predictOutPutLabel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.predictOutPutLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.predictOutPutLabel.Location = new System.Drawing.Point(569, 611);
+            this.predictOutPutLabel.Location = new System.Drawing.Point(170, 603);
             this.predictOutPutLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.predictOutPutLabel.Name = "predictOutPutLabel";
             this.predictOutPutLabel.Size = new System.Drawing.Size(338, 45);
@@ -256,7 +257,7 @@ namespace Loan_Prediction_Desktop_Application
             this.outputSugestionLabel.AutoSize = true;
             this.outputSugestionLabel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputSugestionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.outputSugestionLabel.Location = new System.Drawing.Point(486, 685);
+            this.outputSugestionLabel.Location = new System.Drawing.Point(171, 677);
             this.outputSugestionLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.outputSugestionLabel.Name = "outputSugestionLabel";
             this.outputSugestionLabel.Size = new System.Drawing.Size(503, 45);

@@ -91,7 +91,6 @@ namespace Loan_Prediction_Desktop_Application
             this.yearsLabel.Size = new System.Drawing.Size(90, 45);
             this.yearsLabel.TabIndex = 0;
             this.yearsLabel.Text = "Term";
-            this.yearsLabel.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
             // loanAmmountTB
             // 
@@ -106,7 +105,6 @@ namespace Loan_Prediction_Desktop_Application
             this.loanAmmountTB.Name = "loanAmmountTB";
             this.loanAmmountTB.Size = new System.Drawing.Size(220, 38);
             this.loanAmmountTB.TabIndex = 1;
-            this.loanAmmountTB.TextChanged += new System.EventHandler(this.loanAmmountTB_TextChanged);
             // 
             // intrestRateTB
             // 

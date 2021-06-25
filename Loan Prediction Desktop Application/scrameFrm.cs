@@ -34,7 +34,10 @@ namespace Loan_Prediction_Desktop_Application
             string[] data = appFrame.GetNewHistory();
             RateHistoryUpdater writer = new RateHistoryUpdater();
             if (writer.updateHistory(data))
+            {
                 this.statusLabel.Text = "Status: Scrape and History Update Complete.";
+                appFrame.historyUpdated = true;
+            }
             else
                 this.statusLabel.Text = "Status: Scrape Complete, History update unsuccessful.";
         }

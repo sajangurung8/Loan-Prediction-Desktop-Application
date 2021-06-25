@@ -10,7 +10,8 @@ namespace Loan_Prediction_Desktop_Application
 {
     class RateHistoryUpdater
     {
-        private string file = "Loan_Prediction_Desktop_Application.Resources.history.txt";
+        private string file = "history.txt";
+        
         public RateHistoryUpdater()
         {
 
@@ -21,8 +22,9 @@ namespace Loan_Prediction_Desktop_Application
             try
             {
                 string line;
-                Assembly asm = Assembly.GetExecutingAssembly();
-                StreamReader fc = new StreamReader(asm.GetManifestResourceStream(file));
+                var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string pathWithFile = Path.Combine(systemPath, file);
+                StreamReader fc = new StreamReader(pathWithFile);
                 int numOfLines = 0;
                 while (fc.ReadLine() != null)
                 {
@@ -33,7 +35,7 @@ namespace Loan_Prediction_Desktop_Application
                 {
                     return new string[1] {""};
                 }
-                StreamReader fout = new StreamReader(asm.GetManifestResourceStream(file));
+                StreamReader fout = new StreamReader(pathWithFile);
                 string[] data = new string[numOfLines];
                 int count = 0;
                 line = fout.ReadLine();
@@ -61,15 +63,19 @@ namespace Loan_Prediction_Desktop_Application
         {
             try
             {
-                Assembly asm = Assembly.GetExecutingAssembly();
-                StreamWriter fin = new StreamWriter(asm.GetManifestResourceStream(file));
+                var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string pathWithFile = Path.Combine(systemPath, file);
+                StreamWriter fin = new StreamWriter(pathWithFile);
                 foreach (string line in data)
                 {
                     fin.WriteLine(line);
+                    Console.WriteLine(line);
                 }
+                fin.Close();
                 return true;
-            }catch(Exception)
+            }catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return false;
             }
 
