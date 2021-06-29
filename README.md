@@ -1,6 +1,6 @@
 # SCRAPE2COMPARE- Loan Prediction Desktop Application: 
-VA Loan estimating tool designed to help veterans compare rates and understand monthly payments at one place.
-This Windows form application have 3 funcitons to serve your cuiousity about VA Loan:
+VA Loan estimating tool designed to help veterans compare rates and understand monthly payments.
+This Windows form application have 3 funcitons to serve your cuiousity about a home Loan:
 
 1. Scrape: Scrape2Compare scrapes website of 3 of the top VA Lenders(According to Google) and displays in one window for seamless comparirsion. Use has ability to store rates on a local file to keep track of changes to rate. 
 2. Compare: Scrape2Compare allows you to select the best interest rates from scraping or a custom rate to play with and compare. This section have feature for allowing user to move a slidebar to see where user stands during specific time duing a loan period.
