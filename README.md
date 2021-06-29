@@ -16,15 +16,19 @@ Application classification: Windows Form,
 Experimented: Webscraping using C# and ML.NET.
 
 Welcome frame of Application:
+
 ![s2cHome](https://user-images.githubusercontent.com/84284851/122705396-7c30a200-d20a-11eb-8101-de7836d2a6a4.jpg)
 
 Scrape Tab:
+
 ![scrape_tab](https://user-images.githubusercontent.com/84284851/123878527-1328e880-d8f4-11eb-807e-a7d4698c79dd.jpg)
 
 Compare Tab:
+
 ![compare_tab](https://user-images.githubusercontent.com/84284851/123878553-2045d780-d8f4-11eb-945c-92dbe033f58e.jpg)
 
 Predict Tab with three possible results:
+
 ![predict_medium](https://user-images.githubusercontent.com/84284851/123878589-2fc52080-d8f4-11eb-8eac-91a4e0782e83.jpg)
 ![predict_high](https://user-images.githubusercontent.com/84284851/123878591-305db700-d8f4-11eb-9149-3a6bc4d52ff5.jpg)
 ![predict_low](https://user-images.githubusercontent.com/84284851/123878592-305db700-d8f4-11eb-9700-344a5fb39c9f.jpg)
