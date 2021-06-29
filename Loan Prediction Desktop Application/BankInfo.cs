@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Loan_Prediction_Desktop_Application
 {
+    // this class contains defination for BankInfo used to store data about the three banks in a dictionay 
     public class BankInfo
     {
+        // properties of a bank
         public string bankName { get; set; }
         public string url { get; set; }
         public string tableId { get; set; }
@@ -20,6 +22,8 @@ namespace Loan_Prediction_Desktop_Application
         public string rowDataId { get; set; }
         public string rowDataIdName { get; set; }
         public int[] rowIdIndex { get; set; }
+
+        //ctor
         public BankInfo(string bankName, string url, string tableId, string tableIdName, string rowId, string rowIdName, int[] rowIdIndex, string rowDataId, string rowDataIdName)
         {
             this.bankName = bankName;

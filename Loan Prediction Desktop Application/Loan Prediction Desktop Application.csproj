@@ -137,6 +137,13 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetMonthlyPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetMonthlyPayment.Designer.cs">
+      <DependentUpon>GetMonthlyPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeRatioException.cs" />
     <Compile Include="LoanComponents.cs" />
     <Compile Include="LoanData.cs" />
     <Compile Include="MortgageEstimate.cs" />
@@ -164,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetMonthlyPayment.resx">
+      <DependentUpon>GetMonthlyPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="predictForm.resx">
       <DependentUpon>predictForm.cs</DependentUpon>

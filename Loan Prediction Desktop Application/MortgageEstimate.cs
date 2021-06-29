@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Loan_Prediction_Desktop_Application
 {
+    // Class defination for MortgaeEstimate class, This is where all the calculations are done
     public class MortgageEstimate
     {
+        // fields for loan components
         public double Principal { get; set; }
         public double YearlyRate { get; set; }
         public double InterestRate { get; set; }
@@ -17,6 +19,8 @@ namespace Loan_Prediction_Desktop_Application
         public double MonthlyPayment { get; set; }
 
         public double[,] PaymentData { get; set; }
+
+        //ctor
         public MortgageEstimate(double Principal, double YearlyRate, double Term)
         {
             this.Principal = Principal;
@@ -29,12 +33,14 @@ namespace Loan_Prediction_Desktop_Application
             this.PaymentData = CreateReport(this.NumOfPayments);
         }
 
+        // mthod to ge monthly payment
         public double GetMonthlyPayment()
         {
             this.MonthlyPayment = (this.Principal * (this.InterestRate * Math.Pow((1 + this.InterestRate), this.NumOfPayments))) / ((Math.Pow((this.InterestRate + 1), this.NumOfPayments) - 1));
             return this.MonthlyPayment;
         }
 
+        // method to generate report and store in a 2D array
         public double[,] CreateReport(double NumOfPayments)
         {
             double[,] paymentData;
@@ -67,6 +73,7 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        //method to get info by month
         public double[] GetInfoByPaymentMonth(int month)
         {
             this.CreateReport(this.NumOfPayments);
@@ -89,6 +96,7 @@ namespace Loan_Prediction_Desktop_Application
             return paymentInfo;
         }
 
+        // method to get report about the loan
         public string GetReport()
         {
             if(this.NumOfPayments == 360)

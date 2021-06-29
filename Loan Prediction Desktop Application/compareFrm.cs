@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Loan_Prediction_Desktop_Application
-{
-    
+{   
     public partial class compareFrm : Form
     {
         public MortgageEstimate myMortgage;
+       //ctor
         public compareFrm()
         {
             InitializeComponent();
@@ -21,11 +21,7 @@ namespace Loan_Prediction_Desktop_Application
             loanProgressBar.Visible = false;
         }
 
-        private void yearsLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // click event handler for estimate button
         private void estimateBtn_Click(object sender, EventArgs e)
         {
             try
@@ -67,6 +63,7 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        // event handler for check button for lowest rate
         private void useLowestCB_CheckedChanged(object sender, EventArgs e)
         {
             if (useLowestCB.Checked && thirtyRadioBtn.Checked)
@@ -82,6 +79,7 @@ namespace Loan_Prediction_Desktop_Application
                 intrestRateTB.Text = "";
         }
 
+        // event handler for track bar 
         private void loanTrackBar_Scroll(object sender, EventArgs e)
         {
             loanProgressBar.Visible = true;
@@ -93,22 +91,19 @@ namespace Loan_Prediction_Desktop_Application
             loanProgressBar.Value = (int)((myMortgage.Principal - paymentData[4]) / myMortgage.Principal * 100);
         }
 
+        // event handler for radio button for 15 years
         private void fifteenRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (useLowestCB.Checked && !appFrame.GetLowestRate15().Equals(10))
                 intrestRateTB.Text = appFrame.GetLowestRate15().ToString();
         }
 
+        // event handler for 30 years
         private void thirtyRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (useLowestCB.Checked && !appFrame.GetLowestRate30().Equals(10))
                 intrestRateTB.Text = appFrame.GetLowestRate30().ToString(); 
 
-        }
-
-        private void compareFrm_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Loan_Prediction_Desktop_Application
 {
     public partial class appFrame : Form
     {
+        // properties used throughout the application
         public static bool loadComplete1 = false, loadComplete2 = false, loadComplete3 = false, noData = false, historyUpdated = false;
         public static bool firstload = true;
         public static double lowestIntrestRate30 = 10, lowestIntrestRate15 = 10;
@@ -29,6 +30,7 @@ namespace Loan_Prediction_Desktop_Application
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
+        // making the applicaiton window Round
         private static extern IntPtr CreateRoundRectRgn
             (
                 int nLeftRect,
@@ -38,11 +40,12 @@ namespace Loan_Prediction_Desktop_Application
                 int nWidthEllipse,
                 int nHeightEllipse
                 );
+
+        //ctor for appFrame
         public appFrame()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0,0, Width, Height, 25,25));
-
             this.canvasPnl.Controls.Clear();
             frmMain welcome = new frmMain() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             welcome.FormBorderStyle = FormBorderStyle.None;
@@ -51,6 +54,7 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        // method deffination for GetNewHistory
         public static string[] GetNewHistory()
         {
             string todayDate = DateTime.Now.ToString("MM/dd/yyyy");
@@ -61,16 +65,19 @@ namespace Loan_Prediction_Desktop_Application
             return data;
         }
 
+        //method that returns the lowest rate for 30 years
         public static double GetLowestRate30()
         {
             return lowestIntrestRate30;
         }
 
+        // method to return the lowest rate for 15 years
         public static double GetLowestRate15()
         {
             return lowestIntrestRate15;
         }
 
+        //makes window round
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -82,44 +89,20 @@ namespace Loan_Prediction_Desktop_Application
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
-        private void logoBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // click event handler for exit button
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // click event handler for scrape tab
         public void scrapeBtn_Click(object sender, EventArgs e)
         {
+            // making scrape tab active
             scrapeBtn.BackColor = Color.FromArgb(46,51,73);
             compareBtn.BackColor = Color.FromArgb(24, 30, 54);
             predictBtn.BackColor = Color.FromArgb(24, 30, 54);
             titleLbl.Text = "Let's Scrape Lender Websites";
-
-
             this.canvasPnl.Controls.Clear();
             scrameFrm s1 = new scrameFrm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             s1.FormBorderStyle = FormBorderStyle.None;
@@ -133,14 +116,16 @@ namespace Loan_Prediction_Desktop_Application
             previousData = watcher.checkHistory();
             noData = (previousData.Length <= 1) ? true : false;
 
+            //code for initial program launch
             if (firstload)
             {
-                
-                GetHtmlAsync("Navy Federal", s1.nf30,s1.nf15, s1.changeInNF,s1.statusLabel, s1.historyUpdateButton);
+                //Asyncronysly scrape websites
+                GetHtmlAsync("Navy Federal", s1.nf30, s1.nf15, s1.changeInNF, s1.statusLabel, s1.historyUpdateButton);
                 GetHtmlAsync("USAA", s1.us30, s1.us15, s1.changeInUS, s1.statusLabel, s1.historyUpdateButton);
                 GetHtmlAsync("Veterans United", s1.vu30, s1.vu15, s1.changeInVU, s1.statusLabel, s1.historyUpdateButton);
                 firstload = false;
             }
+            // code for scrape tab visit after initial visit
             else
             {
                 previousData = watcher.checkHistory();
@@ -154,12 +139,10 @@ namespace Loan_Prediction_Desktop_Application
                 s1.changeInNF.Text = $"Change since {changeDateNF}\n{change1NF}\n{change2NF}";
                 s1.changeInUS.Text = $"Change since {changeDateUS}\n{change1US}";
                 s1.changeInVU.Text = $"Change since {changeDateVU}\n{change1VU}\n{change2VU}";
-                
             }
-
-
         }
 
+        //Async method to scrape lender websites 
         private static async void GetHtmlAsync(string bankSelection, System.Windows.Forms.Label obj1, System.Windows.Forms.Label obj2, System.Windows.Forms.Label obj3, System.Windows.Forms.Label status, System.Windows.Forms.Button btn)
         {
             // creating dictionary for lender data
@@ -381,8 +364,6 @@ namespace Loan_Prediction_Desktop_Application
                         }
                     }
                 }
-                
-
                 else if (bankSelection == "Veterans United")
                 {
                     foreach (string line in previousData)
@@ -428,8 +409,10 @@ namespace Loan_Prediction_Desktop_Application
             }
         }
 
+        // click event handler for compare tab
         private void compareBtn_Click(object sender, EventArgs e)
         {
+            // making compare tab active
             compareBtn.BackColor = Color.FromArgb(46, 51, 73);
             scrapeBtn.BackColor = Color.FromArgb(24, 30, 54);
             predictBtn.BackColor = Color.FromArgb(24, 30, 54);
@@ -443,8 +426,10 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        // click event handler for prediction tab
         private void predictBtn_Click(object sender, EventArgs e)
         {
+            // making predict tab active
             predictBtn.BackColor = Color.FromArgb(46, 51, 73);
             compareBtn.BackColor = Color.FromArgb(24, 30, 54);
             scrapeBtn.BackColor = Color.FromArgb(24, 30, 54);
@@ -458,19 +443,12 @@ namespace Loan_Prediction_Desktop_Application
 
         }
 
+        // click event handler for minimize button
         private void button1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void titleLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void canvasPnl_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
+  
     }
 }

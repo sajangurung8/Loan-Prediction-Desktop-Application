@@ -144,7 +144,6 @@ namespace Loan_Prediction_Desktop_Application
             this.nf30.Size = new System.Drawing.Size(143, 45);
             this.nf30.TabIndex = 4;
             this.nf30.Text = "Scraping";
-            this.nf30.Click += new System.EventHandler(this.nf30_Click);
             // 
             // us30
             // 
@@ -157,7 +156,6 @@ namespace Loan_Prediction_Desktop_Application
             this.us30.Size = new System.Drawing.Size(143, 45);
             this.us30.TabIndex = 4;
             this.us30.Text = "Scraping";
-            this.us30.Click += new System.EventHandler(this.nf30_Click);
             // 
             // vu30
             // 
@@ -170,7 +168,6 @@ namespace Loan_Prediction_Desktop_Application
             this.vu30.Size = new System.Drawing.Size(143, 45);
             this.vu30.TabIndex = 4;
             this.vu30.Text = "Scraping";
-            this.vu30.Click += new System.EventHandler(this.nf30_Click);
             // 
             // statusLabel
             // 
@@ -183,7 +180,6 @@ namespace Loan_Prediction_Desktop_Application
             this.statusLabel.Size = new System.Drawing.Size(434, 45);
             this.statusLabel.TabIndex = 5;
             this.statusLabel.Text = "Status: Scraping in progress...";
-            this.statusLabel.Click += new System.EventHandler(this.statusLabel_Click);
             // 
             // nf15
             // 
@@ -196,7 +192,6 @@ namespace Loan_Prediction_Desktop_Application
             this.nf15.Size = new System.Drawing.Size(143, 45);
             this.nf15.TabIndex = 4;
             this.nf15.Text = "Scraping";
-            this.nf15.Click += new System.EventHandler(this.nf30_Click);
             // 
             // vu15
             // 
@@ -209,7 +204,6 @@ namespace Loan_Prediction_Desktop_Application
             this.vu15.Size = new System.Drawing.Size(143, 45);
             this.vu15.TabIndex = 4;
             this.vu15.Text = "Scraping";
-            this.vu15.Click += new System.EventHandler(this.nf30_Click);
             // 
             // us15
             // 
@@ -222,7 +216,6 @@ namespace Loan_Prediction_Desktop_Application
             this.us15.Size = new System.Drawing.Size(143, 45);
             this.us15.TabIndex = 4;
             this.us15.Text = "Scraping";
-            this.us15.Click += new System.EventHandler(this.nf30_Click);
             // 
             // changeInNF
             // 
@@ -235,7 +228,6 @@ namespace Loan_Prediction_Desktop_Application
             this.changeInNF.Size = new System.Drawing.Size(262, 45);
             this.changeInNF.TabIndex = 4;
             this.changeInNF.Text = "Checking History";
-            this.changeInNF.Click += new System.EventHandler(this.nf30_Click);
             // 
             // changeInUS
             // 
@@ -248,7 +240,6 @@ namespace Loan_Prediction_Desktop_Application
             this.changeInUS.Size = new System.Drawing.Size(262, 45);
             this.changeInUS.TabIndex = 4;
             this.changeInUS.Text = "Checking History";
-            this.changeInUS.Click += new System.EventHandler(this.nf30_Click);
             // 
             // changeInVU
             // 
@@ -261,7 +252,6 @@ namespace Loan_Prediction_Desktop_Application
             this.changeInVU.Size = new System.Drawing.Size(262, 45);
             this.changeInVU.TabIndex = 4;
             this.changeInVU.Text = "Checking History";
-            this.changeInVU.Click += new System.EventHandler(this.nf30_Click);
             // 
             // historyUpdateButton
             // 

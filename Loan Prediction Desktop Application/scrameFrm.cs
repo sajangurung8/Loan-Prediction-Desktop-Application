@@ -12,25 +12,16 @@ namespace Loan_Prediction_Desktop_Application
 {
     public partial class scrameFrm : Form
     {
+        //ctor
         public scrameFrm()
         {
             InitializeComponent();
             this.historyUpdateButton.Visible = false;
         }
 
-        private void nf30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // event handler for history update button
         private void historyUpdateButton_Click(object sender, EventArgs e)
-        {
-            
+        {  
             string[] data = appFrame.GetNewHistory();
             RateHistoryUpdater writer = new RateHistoryUpdater();
             if (writer.updateHistory(data))

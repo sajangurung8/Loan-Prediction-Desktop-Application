@@ -66,7 +66,6 @@ namespace Loan_Prediction_Desktop_Application
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(372, 1100);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -165,7 +164,6 @@ namespace Loan_Prediction_Desktop_Application
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 1;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -178,7 +176,6 @@ namespace Loan_Prediction_Desktop_Application
             this.label3.Size = new System.Drawing.Size(294, 90);
             this.label3.TabIndex = 1;
             this.label3.Text = "Designed and Developed by\r\nSajan Gurung\r\nCopyRight © 2021";
-            this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
             // exitBtn
             // 
@@ -227,7 +224,6 @@ namespace Loan_Prediction_Desktop_Application
             this.label1.Text = "An Estimating tool designed for \r\nveterans to compare, estimate \r\nand predict Hom" +
     "e loans";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // logoBox
             // 
@@ -241,7 +237,6 @@ namespace Loan_Prediction_Desktop_Application
             this.logoBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoBox.TabIndex = 0;
             this.logoBox.TabStop = false;
-            this.logoBox.Click += new System.EventHandler(this.logoBox_Click);
             // 
             // titleLbl
             // 
@@ -254,7 +249,6 @@ namespace Loan_Prediction_Desktop_Application
             this.titleLbl.Size = new System.Drawing.Size(1294, 65);
             this.titleLbl.TabIndex = 1;
             this.titleLbl.Text = "SCRAPE2COMPARE Loan Estimator Windows Applicaton";
-            this.titleLbl.Click += new System.EventHandler(this.titleLbl_Click);
             // 
             // canvasPnl
             // 
@@ -264,7 +258,6 @@ namespace Loan_Prediction_Desktop_Application
             this.canvasPnl.Name = "canvasPnl";
             this.canvasPnl.Size = new System.Drawing.Size(1462, 1006);
             this.canvasPnl.TabIndex = 2;
-            this.canvasPnl.Paint += new System.Windows.Forms.PaintEventHandler(this.canvasPnl_Paint);
             // 
             // appFrame
             // 
@@ -280,7 +273,6 @@ namespace Loan_Prediction_Desktop_Application
             this.Name = "appFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Scrape 2 Compare";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -294,7 +286,6 @@ namespace Loan_Prediction_Desktop_Application
         }
 
         #endregion
-
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

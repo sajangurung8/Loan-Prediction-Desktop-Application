@@ -8,15 +8,19 @@ using System.Threading.Tasks;
 
 namespace Loan_Prediction_Desktop_Application
 {
+    // defination for RateHistoryUpdater to update history.txt to compare older rates
     class RateHistoryUpdater
     {
+        // feild for file name
         private string file = "history.txt";
         
+        //ctor
         public RateHistoryUpdater()
         {
 
         }
 
+        // method returns data from the file, if no data or file not present returns exception message
         public string[] checkHistory()
         {
             try
@@ -56,9 +60,9 @@ namespace Loan_Prediction_Desktop_Application
             {
                 return new string[1] {e.Message};
             }
-
         }
 
+        // method to update file with new data
         public bool updateHistory(string[] data)
         {
             try
@@ -78,7 +82,6 @@ namespace Loan_Prediction_Desktop_Application
                 Console.WriteLine(e.Message);
                 return false;
             }
-
         }
     }
 }

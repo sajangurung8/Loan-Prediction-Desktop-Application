@@ -266,7 +266,6 @@ namespace Loan_Prediction_Desktop_Application
             this.numOfYearLbl.Size = new System.Drawing.Size(37, 45);
             this.numOfYearLbl.TabIndex = 0;
             this.numOfYearLbl.Text = "0";
-            this.numOfYearLbl.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
             // loanProgressBar
             // 
@@ -290,7 +289,6 @@ namespace Loan_Prediction_Desktop_Application
             this.principalSoFarLbl.Size = new System.Drawing.Size(37, 45);
             this.principalSoFarLbl.TabIndex = 0;
             this.principalSoFarLbl.Text = "0";
-            this.principalSoFarLbl.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
             // intrestSoFarLbl
             // 
@@ -303,7 +301,6 @@ namespace Loan_Prediction_Desktop_Application
             this.intrestSoFarLbl.Size = new System.Drawing.Size(37, 45);
             this.intrestSoFarLbl.TabIndex = 0;
             this.intrestSoFarLbl.Text = "0";
-            this.intrestSoFarLbl.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
             // calculationStatusLbl
             // 
@@ -326,7 +323,6 @@ namespace Loan_Prediction_Desktop_Application
             this.yearLbl.Size = new System.Drawing.Size(79, 45);
             this.yearLbl.TabIndex = 0;
             this.yearLbl.Text = "Year";
-            this.yearLbl.Click += new System.EventHandler(this.yearsLabel_Click);
             // 
             // noteCompare
             // 
@@ -371,7 +367,6 @@ namespace Loan_Prediction_Desktop_Application
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "compareFrm";
             this.Text = "compareFrm";
-            this.Load += new System.EventHandler(this.compareFrm_Load);
             this.loanEstimateDisplayPanel.ResumeLayout(false);
             this.loanEstimateDisplayPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loanTrackBar)).EndInit();

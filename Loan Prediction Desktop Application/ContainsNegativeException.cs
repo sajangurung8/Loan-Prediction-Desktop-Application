@@ -10,10 +10,7 @@ namespace Loan_Prediction_Desktop_Application
     public class ContainsNegativeException: Exception
     {
         public ContainsNegativeException() { }
-        public ContainsNegativeException(string message): base(message)
-        {
-
-        }
+        public ContainsNegativeException(string message): base(message) { }
         public ContainsNegativeException(string message, Exception inner) : base(message, inner) { }
     }
 }
