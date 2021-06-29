@@ -26,6 +26,7 @@ namespace Loan_Prediction_Desktop_Application
             try
             {
                 string line;
+                //file path is C:\Users\%username%\AppData\Roaming
                 var systemPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 string pathWithFile = Path.Combine(systemPath, file);
                 StreamReader fc = new StreamReader(pathWithFile);
